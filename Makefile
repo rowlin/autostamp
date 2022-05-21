@@ -5,7 +5,7 @@ restart: down up
 sh:
 	docker-compose run --rm php-cli bash
 docker-cli-install:
-	docker-compose run --rm php-cli composer create-project laravel/laravel .  "5.5.*" --prefer-dist
+	docker-compose run --rm php-cli composer install
 docker-up:
 	docker-compose up -d
 docker-down:
