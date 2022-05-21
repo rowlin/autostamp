@@ -1,10 +1,11 @@
-Пустой репозиторий , в котором выполнены первоначальные настройки для начала разработки
+Используется Laravel 5.5 для тестового задания.
+
+
 
 Первоначальные настройки :
-nginx - в качестве reversed proxy
-php-cli - окружение c php-8.1 + composer
-php-fpm - с php-8.1
-nginx - для фронта  
+nginx - в качестве сервера
+php-cli - окружение c php-7.2 + composer
+php-fpm - с php-7.2  
 
 ```
 make init
@@ -14,6 +15,6 @@ make init
 make tests 
 ```
 
-Подробнее в Makefile
+Подробнее в Makefile.
 
 
