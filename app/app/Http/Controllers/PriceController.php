@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Prices\SelectRequest;
 use App\Http\Requests\Prices\UpdateRequest;
+use App\Price;
 use App\Product;
 use App\Store;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\View\View;
 
 class PriceController extends Controller
@@ -25,7 +28,13 @@ class PriceController extends Controller
 
     public function list(SelectRequest $request): View{
         $stores = Store::all();
-        $result = [];
+
+        $result = Price::when($request->store_id , function (Builder $q) use ($request) {
+            return $q->where('store_id', $request->store_id );
+        })->when($request->starts_at, function(Builder  $q) use ($request){
+            return $q->where('starts_at' ,'>=', Carbon::parse($request->starts_at) );
+        })->orderBy('starts_at' , "DESC")->get();
+
         return view('price_list.index' , compact('stores' , 'result'));
     }
 
