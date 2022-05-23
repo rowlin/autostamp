@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Prices;
 
 use Illuminate\Foundation\Http\FormRequest;
-use phpDocumentor\Reflection\Types\Nullable;
 
 class SelectRequest extends FormRequest
 {
@@ -28,5 +27,14 @@ class SelectRequest extends FormRequest
             "starts_at" => 'nullable',
             'store_id' => 'nullable'
         ];
+    }
+
+    /** Return all data as array
+     * @return array
+     */
+
+    public function validationData()
+    {
+        return array_merge($this->request->all(),$this->route()->parameters());
     }
 }
