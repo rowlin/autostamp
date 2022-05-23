@@ -41,7 +41,7 @@ class PriceController extends Controller
         $r1 = Price::where('store_id' , null);
         $result = Price::when(($request->has('store_id') & $request->get('store_id') !== null) , function (Builder $q) use ($request) {
             return $q->where('store_id',$request->get('store_id')  );
-        })->when($date , function(Builder $q) use ($date){
+        })->when(($date !== false) , function(Builder $q) use ($date){
             return $q->where('starts_at', '>=' ,$date  );
         })->union($r1)->orderBy('starts_at' , "DESC")->get();
 
