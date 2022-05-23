@@ -35,3 +35,5 @@ Route::get('/prices', 'PriceController@index')->name('prices');
 Route::post('/price/update' , 'PriceController@update')->name('price.update');
 Route::get('/price_lists' , "PriceController@list" )->name('price.list');
 
+Route::get('/users', 'UsersController@index')->name('users');
+Route::get('/roles', 'RolesController@index')->name('roles');
