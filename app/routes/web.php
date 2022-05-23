@@ -24,7 +24,7 @@ Route::patch('/product/update/{product_id}', 'ProductController@update')->where(
 Route::delete('/product/delete/{product_id}' , 'ProductController@delete')->where('product_id', '[0-9]+')->name('product.delete');
 
 
-Route::get('/stories',  'StoreController@index')->name('stories.list');
+Route::get('/stores',  'StoreController@index')->name('stories.list');
 Route::get('/store/edit/{store_id}' , 'StoreController@edit')->where('store_id', '[0-9]+')->name('store.edit');
 Route::get('/store/create', 'StoreController@create')->name('store.create');
 Route::post('/store/create', 'StoreController@save')->name('store.save');

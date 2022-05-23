@@ -14,7 +14,7 @@
 
 @section('content')
     <div>
-        @foreach($stories as $store)
+        @foreach($stores as $store)
             <div class="media">
                 <div class="content">
                     <p class="name truncate" >
@@ -38,7 +38,7 @@
                 </div>
             </div><!--media-->
         @endforeach
-        {{ $stories->links() }}
+        {{ $stores->links() }}
     </div>
 @stop
 
