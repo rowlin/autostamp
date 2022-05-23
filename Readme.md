@@ -2,11 +2,10 @@
 
 Первоначальные настройки :  
 nginx - в качестве сервера  
-php-cli - окружение c php-7.2 + composer  
-php-fpm - с php-7.2  
+php-cli - окружение( ubuntu 16.4 ) c 7.2.15 + composer  
+php-fpm - с 7.2.15  
 mysql 5.7   
-redis
-
+redis 
 ```
 make init
 ```
@@ -16,5 +15,9 @@ make tests
 ```
 
 Подробнее в Makefile.
+
+![media/img.png](img.png)
+
+Выполнена первая часть задания: 
 
 
