@@ -10,13 +10,9 @@ class Product extends Model
 
     protected $perPage = 5;
 
-    protected $primaryKey = 'id';
-
-    protected $keyType = 'id';
-
-    public function getRouteKeyName()
-    {
-        return 'id';
+    public function price(){
+        return $this->hasMany('App\Price' , 'product_id');
     }
+
 
 }

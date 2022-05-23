@@ -39,7 +39,7 @@ class PriceController extends Controller
     }
 
     public function update(UpdateRequest $request){
-        $product = Product::where('id' , $request->product_id )->orWhere('code' , $request->product_id )->first();
+        $product = Product::where('id' , trim($request->product_id) )->orWhere('code' , trim($request->code) )->first();
         if($product === null ){
             $this->error =  "Product not found";
         }else{
@@ -54,7 +54,7 @@ class PriceController extends Controller
         }
 
         if($this->error ){
-            return redirect()->back()->withErrors(['msg' => $this->error]);
+            return redirect()->back()->withErrors( $this->error);
         }else{
             return redirect()->back()->with('status' , 'Updated.');
         }
