@@ -10,6 +10,7 @@ use App\Store;
 class StoreTest extends TestCase
 {
     use WithFaker;
+    use HelpTrait;
 
     protected function setUp()
     {
@@ -17,9 +18,6 @@ class StoreTest extends TestCase
         $this->withoutMiddleware(VerifyCsrfToken::class);
     }
 
-    protected function getFirstStore(){
-        return Store::first();
-    }
 
     protected function generateNewStore(array $data = []){
         return  [
@@ -45,7 +43,7 @@ class StoreTest extends TestCase
     public function testStoreUpdate(){
         $store = $this->getFirstStore();
         $new_store = $this->generateNewStore();
-        $this->patch('/store/update/'. $store->id , $new_store);
+        $res =  $this->patch('/store/update/'. $store->id , $new_store);
         $this->assertDatabaseHas('stores' ,  $new_store);
     }
 

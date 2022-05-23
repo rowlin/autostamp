@@ -2,22 +2,18 @@
 
 namespace Tests\Feature;
 
-use App\Product;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use App\Http\Middleware\VerifyCsrfToken;
 class ProductTest extends TestCase
 {
     use WithFaker;
+    use HelpTrait;
 
     protected function setUp()
     {
         parent::setUp();
         $this->withoutMiddleware(VerifyCsrfToken::class);
-    }
-
-    protected function getFirstProduct(){
-        return Product::first();
     }
 
     protected function generateNewProduct(array $data = []){
@@ -55,5 +51,7 @@ class ProductTest extends TestCase
         $this->delete('/product/delete/'. $product->id);
         $this->assertDatabaseMissing('products' ,  $product->toArray());
     }
+
+
 
 }
