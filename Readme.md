@@ -1,5 +1,7 @@
 Используется Laravel 5.5 для тестового задания.
 
+https://drive.google.com/file/d/1nUvI-HvUCYlPBfRrKMSsLwTKDCr0nWWJ/view
+
 Первоначальные настройки :  
 nginx - в качестве сервера  
 php-cli - окружение( ubuntu 16.4 ) c 7.2.15 + composer  
