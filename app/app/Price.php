@@ -18,8 +18,5 @@ class Price extends Model
         return $this->hasOne(Store::class , 'id' , 'store_id' )->withDefault([ 'store_id' => null ]);
     }
 
-    protected $primaryKey = 'id';
-
-    //const CREATED_AT = 'starts_at';
 
 }

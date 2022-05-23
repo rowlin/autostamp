@@ -30,3 +30,8 @@ Route::get('/store/create', 'StoreController@create')->name('store.create');
 Route::post('/store/create', 'StoreController@save')->name('store.save');
 Route::patch('/store/update/{store_id}', 'StoreController@update')->where('store_id', '[0-9]+')->name('store.update');
 Route::delete('/store/delete/{store_id}' , 'StoreController@delete')->where('store_id', '[0-9]+')->name('store.delete');
+
+Route::get('/prices', 'PriceController@index')->name('prices');
+Route::post('/price/update' , 'PriceController@update')->name('price.update');
+Route::get('/price_lists' , "PriceController@list" )->name('price.list');
+
