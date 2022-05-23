@@ -12,7 +12,7 @@
 @stop
 
 @section('content')
-    <form action="{{ url("/store/update/{$store->id}") }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url("/store/update/{$store->id}") }}" method="post" >
         <input type="hidden" name="_method" value="PATCH">
         @include('store.form._form')
         <button type="submit" class="btn btn-dark mt-10">Save store</button>

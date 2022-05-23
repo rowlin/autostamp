@@ -12,7 +12,7 @@
 @stop
 
 @section('content')
-    <form action="{{ url('/store/create') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('/store/create') }}" method="post" >
         @include('store.form._form')
         <button type="submit" class="btn btn-dark mt-10">Create</button>
     </form>
