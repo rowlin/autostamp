@@ -54,13 +54,10 @@ main{
 .nav > li > a{
   font-size: 18px;
   color: $panel-hover-color;
+  margin-right: 15px;
   &.active{
     color: #ffffff;
     background-color: $panel-hover-color;
-    margin-right: 15px;
-  }
-  &:hover{
-    margin-right: 15px;
   }
 }
 
