@@ -16,8 +16,10 @@ make tests
 
 Подробнее в Makefile.
 
-![media/img.png](img.png)
+![media/img.png](media/img.png)
 
 Выполнена первая часть задания: 
 
 
+
+![media/video_Path1.mp4](media/video_Path1.mp4)
