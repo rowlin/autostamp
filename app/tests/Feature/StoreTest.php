@@ -30,7 +30,7 @@ class StoreTest extends TestCase
     {
         $store = $this->generateNewStore();
         $response = $this->post('/store/create', $store );
-        $this->assertDatabaseHas('stores' ,  $store );
+        $this->assertDatabaseHas('stores' , ['name' => $store['name']] );
         $response->assertRedirect('stores');
     }
 
@@ -44,7 +44,8 @@ class StoreTest extends TestCase
         $store = $this->getFirstStore();
         $new_store = $this->generateNewStore();
         $res =  $this->patch('/store/update/'. $store->id , $new_store);
-        $this->assertDatabaseHas('stores' ,  $new_store);
+        $res->assertStatus(302);
+        $this->assertDatabaseHas('stores' , [ 'name' =>$new_store['name']]);
     }
 
     public function testStoreDelete(){

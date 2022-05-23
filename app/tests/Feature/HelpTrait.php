@@ -11,11 +11,19 @@ trait HelpTrait
 {
 
     protected function getFirstProduct(){
-        return Product::first();
+        $product =  Product::first();
+        if($product == null){
+           $product = factory(Product::class)->create();
+        }
+        return $product;
     }
 
     protected function getFirstStore(){
-        return Store::first();
+        $store = Store::first();
+        if($store == null){
+            $store = factory(Store::class)->create();
+        }
+        return $store;
     }
 
 }

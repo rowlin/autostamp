@@ -28,7 +28,7 @@ class PriceTest extends TestCase
         return [
             'product_id' =>  $data['product_id'] ?? rand(0, 10),
             'store_id' =>  $data['store_id'] ?? null ,
-            'price' => $data['price'] ?? $this->faker->randomDigit ,
+            'price' => $data['price'] ?? $this->faker->randomFloat(2) ,
             'starts_at' => $data['starts_at'] ?? $this->faker->dateTime
 
         ];
@@ -39,7 +39,7 @@ class PriceTest extends TestCase
         $data =[
             'product_id' =>  $product->id,
             'store_id' => null ,
-            'price' => $data['price'] ?? $this->faker->randomDigit ,
+            'price' => $data['price'] ?? $this->faker->randomFloat(2) ,
             'starts_at' => $data['starts_at'] ?? $this->faker->dateTime
         ];
          $resp  =$this->post('price/update' , $data );
@@ -50,6 +50,7 @@ class PriceTest extends TestCase
 
     public function testPriceSetProductByCode(){
         $product = $this->getFirstProduct();
+
         $data = $this->generateRequest([
             'product_id' => $product->code,
             'store_id' => null,
@@ -59,6 +60,20 @@ class PriceTest extends TestCase
         $this->assertDatabaseHas('prices', ['product_id' => $product->id , 'store_id' => $data['store_id'] ,'price' => $data['price'] ]);
         $resp->assertStatus(302);
     }
+
+    public function testPriceSetProductByCodeWithStore(){
+        $product = $this->getFirstProduct();
+        $store = $this->getFirstStore();
+        $data = $this->generateRequest([
+            'product_id' => $product->code,
+            'store_id' => $store->id,
+        ]);
+        $resp  = $this->post('price/update' , $data );
+        $this->assertDatabaseHas('prices', ['product_id' => $product->id , 'store_id' => $data['store_id'] ,'price' => $data['price'] ]);
+        $resp->assertStatus(302);
+    }
+
+
 
     public function testPriceSetProductByWrongCode(){
         $data = $this->generateRequest([

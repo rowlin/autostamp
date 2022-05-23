@@ -29,7 +29,7 @@
     <div class="form-group">
         <label for="starts_at">Start date and time</label>
         <input type="datetime-local" name="starts_at" id="starts_at"
-               value="@if(request()->has('starts_at')){{ request()->get('starts_at') }}@endif"
+               value="@if(request()->has('starts_at')){{ request()->get('starts_at') }}@else{{null}}@endif"
                class="form-control">
     </div>
 

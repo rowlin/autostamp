@@ -68,9 +68,11 @@ class ProductController extends Controller
 
 
     public function delete(Product $product){
-        if($product->delete()){
+        if($product){
+            $product->price()->delete();
+            $product->delete();
             return redirect()->back()->with('success' ,'Product was deleted');
         }else
-            return redirect()->back()->with('success' ,'Oops: Something was wrong');
+            return redirect()->back()->withErrors('Oops: Something was wrong');
     }
 }
