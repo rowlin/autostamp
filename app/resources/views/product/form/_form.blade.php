@@ -45,5 +45,5 @@
     </div>
 
     <label for="description">Description</label>
-    <textarea name="description" id="description" class="form-control @if($errors->has('description')) is-invalid @else is-valid @endif" cols="30" rows="3">{{ isset($product) ? $product->description :  old('image') ?? ''}}</textarea>
+    <textarea name="description" id="description" class="form-control @if($errors->has('description')) is-invalid @else is-valid @endif" cols="30" rows="3">{{ isset($product) ? $product->description :  old('description') ?? ''}}</textarea>
 
