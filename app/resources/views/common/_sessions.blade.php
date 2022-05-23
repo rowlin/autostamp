@@ -6,10 +6,12 @@
     </div>
 @endif
 
-@if($errors->any())
-    <div class="alert alert-danger">
-        <ul style="list-style-type: none;">
-            <li>{{  $errors }}</li>
-        </ul>
-    </div>
+@if(request()->segment(1)  !== 'product')
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul style="list-style-type: none;">
+                <li>{{  $errors }}</li>
+            </ul>
+        </div>
+    @endif
 @endif
